@@ -4,7 +4,7 @@ Redux enhancer for composing higher order reducers
 
 ## Benefits
 - Simple enhancer method for adding higher order reducers to redux.
-- Wrap the reduce reducer with functionality ensuring that the higher order runs before the primary reducer.
+- Wrap the reducer with functionality ensuring that the higher order reducers run before the primary reducer.
 
 
 ## Build Status
@@ -45,11 +45,11 @@ The most common use case for higher order reducers is to support modification of
 
 
 #### Arguments
-* `...higherOrders` (*arguments*): Functions that conform to the *higher-order API*. Each higherOrder receives the `reducer` function and returns a reducer function. The higher orderThe higher order signature is `(reducer) => (state, action) => reducer(state, action)`.
+* `...higherOrders` (*arguments*): Functions that conform to the *higher-order API*. Each higherOrder receives the `reducer` function and returns a reducer function. The higher order signature is `(reducer) => (state, action) => reducer(state, action)`.
 
 
 #### Returns
-(*Function*) A store enhancer that applies the given higher-order. The store enhancer signature is `createStore => createStore'` but the easiest way to apply it is to pass it to [`createStore()`](./createStore.md) as the last `enhancer` argument.
+* `Function` A store enhancer that applies the given higher order reducers. The store enhancer signature is `createStore => createStore'` but the easiest way to apply it is to pass it to [`createStore()`](http://redux.js.org/docs/api/createStore.html) as the last `enhancer` argument.
 
 
 #### Example: Custom Logger Higher Order
@@ -65,7 +65,7 @@ function logger() {
 
     // Reduce the next state
     let resultState = reducer(state, action)
-    console.log('state after dispatch', resultState)
+    console.log('state after reduction', resultState)
 
     return resultState
   }

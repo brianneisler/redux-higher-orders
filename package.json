@@ -19,7 +19,7 @@
     "test": "gulp test"
   },
   "dependencies": {
-    "mudash": "^0.3.1"
+    "mudash": "^0.3.2"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
